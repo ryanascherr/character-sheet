@@ -34,7 +34,13 @@
                 <div class="container different">
                     <h2>Spell Slots</h2>
                     <ol>
-                        <li>1</li>
+                        <div class="flex">
+                            <li>1</li>
+                            <div>
+                                <div>a</div>
+                                <div>b</div>
+                            </div>
+                        </div>
                         <li>2</li>
                         <li>3</li>
                         <li>4</li>
@@ -105,15 +111,15 @@
                 <div class="container">
                     <h2>Saving Throws</h2>
                     <div class="saving-throws">
-                        <button class="saving-throw" data-modifier="-1">Strength</button>
-                        <button class="saving-throw" data-modifier="-1">Dexterity</button>
-                        <button class="saving-throw" data-modifier="+3">Constitution</button>
-                        <button class="saving-throw" data-modifier="+1">Intelligence</button>
-                        <button class="saving-throw proficient" data-modifier="+5">Wisdom</button>
-                        <button class="saving-throw proficient" data-modifier="+2">Charisma</button>
+                        <button class="saving-throw" data-modifier="-1" data-name="Strength">Strength</button>
+                        <button class="saving-throw" data-modifier="-1" data-name="Dexterity">Dexterity</button>
+                        <button class="saving-throw" data-modifier="3" data-name="Constitution">Constitution</button>
+                        <button class="saving-throw" data-modifier="1" data-name="Intelligence">Intelligence</button>
+                        <button class="saving-throw proficient" data-modifier="10" data-name="Wisdom">Wisdom</button>
+                        <button class="saving-throw proficient" data-modifier="7" data-name="Charisma">Charisma</button>
                     </div>
                     <div class="result">
-                        <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
+                        <h3 id="saving-throw-result"><span id="saving-throw-name"></span><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
                     </div>
                 </div>
             </div>

@@ -202,6 +202,7 @@ savingThrows.addEventListener("click", function(event){
     var element = event.target;
 
     if (element.matches(".saving-throw")) {
+        var name = element.getAttribute("data-name");
         var modifier = element.getAttribute("data-modifier");
         var modifierNumber = parseInt(modifier);
         console.log(modifierNumber);
@@ -224,6 +225,7 @@ savingThrows.addEventListener("click", function(event){
             document.getElementById("saving-throw-roll-1").setAttribute("class", "plain");
             document.getElementById("saving-throw-roll-2").setAttribute("class", "plain");
         }
+        document.getElementById("saving-throw-name").textContent = name + " Save: ";
         document.getElementById("saving-throw-roll-1").textContent = result1;
         document.getElementsByClassName("space")[2].textContent = " | ";
         document.getElementById("saving-throw-roll-2").textContent = result2;
