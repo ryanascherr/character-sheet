@@ -23,13 +23,14 @@ header {
 
 main {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .container {
     border: 2px solid teal;
     text-align: center;
     padding: 10px;
+    width: 400px;
 }
 
 h2 {
@@ -43,4 +44,17 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills button {
+    width: 30%;
+    padding: 5px;
+    margin: 5px;
 }
