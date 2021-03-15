@@ -11,6 +11,7 @@ var allSpellLevels = document.querySelectorAll(".spell-level");
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
 var tollTheDead = document.querySelector("#toll-the-dead");
+var guidingBolt = document.querySelector("#guiding-bolt");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -31,7 +32,7 @@ normal.addEventListener("click", function(){
         spellAttackRollResult.textContent = "CRITICAL HIT";
     } else {
         spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result;
+        spellAttackRollResult.textContent = roll + " + " + spellAttack + " = " + result;
     }
 })
 
@@ -206,9 +207,23 @@ tollTheDead.addEventListener("click", function(){
     var damageRoll = Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1);
     var blessedStrike = Math.floor(Math.random() * 8 + 1);
 
-    document.getElementById("ttd-1").textContent = "Damage: " + noDamageRoll;
-    document.getElementsByClassName("space")[3].textContent = " | ";
-    document.getElementById("ttd-2").textContent = damageRoll + " Necrotic";
-    document.getElementById("blessed-strikes").textContent = "Blessed Strike: " + blessedStrike + " Radiant";
+    document.getElementById("damage-result").innerHTML = "Damage: " + noDamageRoll + " | " + damageRoll + " Necrotic" + "<br>Blessed Strike: " + blessedStrike + " Radiant";
 })
 
+guidingBolt.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
+
+    console.log(roll);
+
+    for (i = 1; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 6 + 1);
+        console.log(roll);
+    }
+
+    if (!spellLevel) {
+        document.getElementById("damage-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Radiant." + "<br> Advantage on next attack.";
+    }
+
+})
