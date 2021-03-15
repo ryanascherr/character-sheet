@@ -83,3 +83,14 @@ button:hover {
     background-color: green;
     color: white;
 }
+
+.spell-levels {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.spell-levels button {
+    width: 30%;
+}

@@ -9,6 +9,7 @@ var savingThrows = document.querySelector(".saving-throws");
 var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
 var healingWord = document.querySelector("#healing-word");
+var cureWounds = document.querySelector("#cure-wounds");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -165,6 +166,25 @@ healingWord.addEventListener("click", function(){
     var roll = 0;
     for (i = 0; i < spellLevel; i ++) {
         roll += Math.floor(Math.random() * 4 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2
+
+    if (!spellLevel) {
+        document.getElementsByClassName("space")[2].textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("heals").textContent = "Heal: " + result;
+        document.getElementsByClassName("space")[2].textContent = " | ";
+        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
+    }
+})
+
+cureWounds.addEventListener("click", function(){
+    var roll = 0;
+    for (i = 0; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 8 + 1);
         console.log(roll);
     }
     console.log(roll);
