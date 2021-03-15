@@ -10,6 +10,7 @@ var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
+var tollTheDead = document.querySelector("#toll-the-dead");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -198,5 +199,16 @@ cureWounds.addEventListener("click", function(){
         document.getElementsByClassName("space")[2].textContent = " | ";
         document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
     }
+})
+
+tollTheDead.addEventListener("click", function(){
+    var noDamageRoll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+    var damageRoll = Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1);
+    var blessedStrike = Math.floor(Math.random() * 8 + 1);
+
+    document.getElementById("ttd-1").textContent = "Damage: " + noDamageRoll;
+    document.getElementsByClassName("space")[3].textContent = " | ";
+    document.getElementById("ttd-2").textContent = damageRoll + " Necrotic";
+    document.getElementById("blessed-strikes").textContent = "Blessed Strike: " + blessedStrike + " Radiant";
 })
 
