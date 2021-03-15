@@ -45,7 +45,7 @@ advantage.addEventListener("click", function(){
     } else if ((roll1 === roll2 && roll1 === 20) || (roll1 > roll2 && roll1 === 20) || (roll1 < roll2 && roll2 === 20)) {
         spellAttackRollResult.setAttribute("class", "natural-20");
         spellAttackRollResult.textContent = "CRITICAL HIT";
-    } else if (roll1 > roll2) {
+    } else if (roll1 > roll2 || roll1 === roll2) {
         spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result1;
     } else if (roll1 < roll2) {
@@ -72,7 +72,7 @@ disadvantage.addEventListener("click", function(){
     } else if (roll1 > roll2) {
         spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result2;
-    } else if (roll1 < roll2) {
+    } else if (roll1 < roll2 || roll1 === roll2) {
         spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result1;
     }
