@@ -14,15 +14,20 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container" id="test">
             <h2>Spell Attack Roll (+10)</h2>
             <div class="rolls">
-                <button id="normal">Normal</button>
-                <button id="advantage">Advantage</button>
-                <button id="disadvantage">Disadvantage</button>
+                <button class="roll-type" data-attribute="normal">Normal</button>
+                <button class="roll-type" data-attribute="adv">Advantage</button>
+                <button class="roll-type" data-attribute="dis">Disadvantage</button>
+            </div>
+            <div class="attack-roll-spells">
+                <button class="attack-spell" id="guiding-bolt">Guiding Bolt</button>
+                <button class="attack-spell" id="holy-haymaker">Holy Haymaker</button>
+                <button class="attack-spell" id="spiritual-weapon">Spiritual Weapon</button>
             </div>
             <div class="result">
-                <h3 id="spell-attack-roll-result"></h3>
+                <h3 id="spell-attack-roll-result"><span id="roll-result"></span><br><span id="damage-result"></span></h3>
             </div>
         </div>
         <div class="container">
@@ -75,6 +80,7 @@
                 <h3 id="healing-spell-result"><span id="heals"></span><span class="space"></span><span id="self-heals"></span></h3>
             </div>
         </div>
+        <!--
         <div class="container">
             <div class="damage-spells">
             <h2>Damage Spells</h2>
@@ -87,6 +93,7 @@
                 <h3 id="damage-result"><span id="ttd-1"></span><span class="space"></span><span id="ttd-2"></span><br><span id="blessed-strikes"></span></h3>
             </div>
         </div>
+        -->
         <div class="container">
             <h2>Spell Levels</h2>
             <div class="spell-levels">

@@ -13,12 +13,152 @@ var cureWounds = document.querySelector("#cure-wounds");
 var tollTheDead = document.querySelector("#toll-the-dead");
 var guidingBolt = document.querySelector("#guiding-bolt");
 var holyHaymaker = document.querySelector("#holy-haymaker");
+var test = document.querySelector("#test");
+var rollType = document.querySelectorAll(".roll-type");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
 var spellAttack = proficiencyBonus + castingModifier;
 var spellLevel;
+var whatRoll;
 
+test.addEventListener("click", function(event){
+
+    var element = event.target;
+
+    //to set the roll type
+    if (element.matches(".roll-type")) {
+        for (var i = 0; i < rollType.length; i++) {
+            rollType[i].setAttribute("class", "plain roll-type");
+        }
+        whatRoll = element.getAttribute("data-attribute");
+        console.log(whatRoll);
+        element.setAttribute("class", "selected roll-type");
+
+    //to display d20 roll based on roll type
+    } else if (element.matches(".attack-spell")) {
+
+        //if straight roll
+        if (whatRoll === "normal") {
+
+            var roll = Math.floor(Math.random() * 20 + 1);
+            var result = roll + spellAttack;
+
+            if (roll === 1) {
+                document.getElementById("roll-result").setAttribute("class", "natural-1");
+                document.getElementById("roll-result").textContent = "CRITICAL MISS! :(";
+            } else if (roll === 20) {
+                document.getElementById("roll-result").setAttribute("class", "natural-20");
+                document.getElementById("roll-result").textContent = "CRITICAL HIT! :)";
+            } else {
+                document.getElementById("roll-result").setAttribute("class", "plain");
+                document.getElementById("roll-result").textContent = "Dice Roll: " + result;
+            }
+
+        //if roll with advantage
+        } else if (whatRoll === "adv") {
+
+            var roll1 = Math.floor(Math.random() * 20 + 1);
+            var roll2 = Math.floor(Math.random() * 20 + 1);
+            var result1 = roll1 + spellAttack;
+            var result2 = roll2 + spellAttack;
+
+            if (roll1 === roll2 && roll1 === 1) {
+                document.getElementById("roll-result").setAttribute("class", "natural-1");
+                document.getElementById("roll-result").textContent = "CRITICAL MISS! :(";
+            } else if ((roll1 === roll2 && roll1 === 20) || (roll1 > roll2 && roll1 === 20) || (roll1 < roll2 && roll2 === 20)) {
+                document.getElementById("roll-result").setAttribute("class", "natural-20");
+                document.getElementById("roll-result").textContent = "CRITICAL HIT :)";
+            } else if (roll1 > roll2 || roll1 === roll2) {
+                document.getElementById("roll-result").setAttribute("class", "plain");
+                document.getElementById("roll-result").textContent = "Dice Roll: " + result1;
+            } else if (roll1 < roll2) {
+                document.getElementById("roll-result").setAttribute("class", "plain");
+                document.getElementById("roll-result").textContent = "Dice Roll: " + result2;
+            }
+
+        //if roll with disadvantage
+        } else if (whatRoll === "dis") {
+            var roll1 = Math.floor(Math.random() * 20 + 1);
+            var roll2 = Math.floor(Math.random() * 20 + 1);
+            var result1 = roll1 + spellAttack;
+            var result2 = roll2 + spellAttack;
+
+            if (roll1 === roll2 && roll1 === 20) {
+                document.getElementById("roll-result").setAttribute("class", "natural-20");
+                document.getElementById("roll-result").textContent = "CRITICAL HIT! :)";
+            } else if ((roll1 === roll2 && roll1 === 1) || (roll1 < roll2 && roll1 === 1) || (roll1 > roll2 && roll2 === 1)) {
+                document.getElementById("roll-result").setAttribute("class", "natural-1");
+                document.getElementById("roll-result").textContent = "CRITICAL MISS! :(";
+            } else if (roll1 > roll2) {
+                document.getElementById("roll-result").setAttribute("class", "plain");
+                document.getElementById("roll-result").textContent = "Dice Roll: " + result2;
+            } else if (roll1 < roll2 || roll1 === roll2) {
+                document.getElementById("roll-result").setAttribute("class", "plain");
+                document.getElementById("roll-result").textContent = "Dice Roll: " + result1;
+            }
+        }
+
+        //if guiding bolt is selected
+        if (element.matches("#guiding-bolt")) {
+            var roll = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
+
+            for (i = 1; i < spellLevel; i ++) {
+                roll += Math.floor(Math.random() * 6 + 1);
+            }
+
+            if (document.getElementById("roll-result").matches(".natural-20")) {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Radiant." + "<br> Advantage on next attack.";
+                }
+            } else if (document.getElementById("roll-result").matches(".natural-1")) {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "";
+                }
+            } else {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Radiant." + "<br> Advantage on next attack.";
+                }
+            }
+
+        //if holy haymaker is selected
+        } else if (element.matches("#holy-haymaker")) {
+            var roll = Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1);
+
+            for (i = 1; i < spellLevel; i ++) {
+                roll += Math.floor(Math.random() * 10 + 1);
+            }
+
+            if (document.getElementById("roll-result").matches(".natural-20")) {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Necrotic.";
+                }
+            } else if (document.getElementById("roll-result").matches(".natural-1")) {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "";
+                }
+            } else {
+                if (!spellLevel) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
+                }
+            }
+        }
+    }})
+        
+    
+/*
 normal.addEventListener("click", function(){
     var roll = Math.floor(Math.random() * 20 + 1);
     var result = roll + spellAttack;
@@ -84,6 +224,7 @@ disadvantage.addEventListener("click", function(){
         spellAttackRollResult.textContent = result1;
     }
 })
+*/
 
 skills.addEventListener("click", function(event){
     var element = event.target;
@@ -203,6 +344,7 @@ cureWounds.addEventListener("click", function(){
     }
 })
 
+/*
 tollTheDead.addEventListener("click", function(){
     var noDamageRoll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
     var damageRoll = Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1);
@@ -245,4 +387,4 @@ holyHaymaker.addEventListener("click", function(){
         document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
     }
 })
-
+*/
