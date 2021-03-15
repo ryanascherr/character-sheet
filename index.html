@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="all">
-                <div class="container" id="test">
+                <div class="container" id="attacks">
                     <h2>Spell Attack Roll (+10)</h2>
                     <div class="rolls">
                         <button class="roll-type" data-attribute="normal">Normal</button>
@@ -59,36 +59,21 @@
                         <button class="skill" data-modifier="-1">Athletics</button>
                         <button class="skill" data-modifier="2">Deception</button>
                         <button class="skill" data-modifier="1">History</button>
-                        <button class="skill" data-modifier="10">Insight</button>
+                        <button class="skill proficient" data-modifier="10">Insight</button>
                         <button class="skill" data-modifier="2">Intimidation</button>
                         <button class="skill" data-modifier="1">Investigation</button>
-                        <button class="skill" data-modifier="10">Medicine</button>
+                        <button class="skill proficient" data-modifier="10">Medicine</button>
                         <button class="skill" data-modifier="1">Nature</button>
-                        <button class="skill" data-modifier="10">Perception</button>
-                        <button class="skill" data-modifier="7">Performance</button>
-                        <button class="skill" data-modifier="7">Persuasion</button>
+                        <button class="skill proficient advantage" data-modifier="10">Perception</button>
+                        <button class="skill proficient" data-modifier="7">Performance</button>
+                        <button class="skill proficient" data-modifier="7">Persuasion</button>
                         <button class="skill" data-modifier="5">Religion</button>
                         <button class="skill" data-modifier="-1">Sleight of Hand</button>
-                        <button class="skill" data-modifier="-1">Stealth</button>
+                        <button class="skill disadvantage" data-modifier="-1">Stealth</button>
                         <button class="skill" data-modifier="5">Survival</button>
                     </div>
                     <div class="result">
                         <h3 id="skills-roll-result"><span id="skill-roll-1"></span><span class="space"></span><span id="skill-roll-2"></span></h3>
-                    </div>
-                </div>
-
-                <div class="container">
-                    <h2>Saving Throws</h2>
-                    <div class="saving-throws">
-                        <button class="saving-throw" data-modifier="-1">Strength</button>
-                        <button class="saving-throw" data-modifier="-1">Dexterity</button>
-                        <button class="saving-throw" data-modifier="+3">Constitution</button>
-                        <button class="saving-throw" data-modifier="+1">Intelligence</button>
-                        <button class="saving-throw" data-modifier="+5">Wisdom</button>
-                        <button class="saving-throw" data-modifier="+2">Charisma</button>
-                    </div>
-                    <div class="result">
-                        <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
                     </div>
                 </div>
 
@@ -100,6 +85,21 @@
                     </div>
                     <div class="result">
                         <h3 id="healing-spell-result"><span id="heals"></span><span class="space"></span><span id="self-heals"></span></h3>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h2>Saving Throws</h2>
+                    <div class="saving-throws">
+                        <button class="saving-throw" data-modifier="-1">Strength</button>
+                        <button class="saving-throw" data-modifier="-1">Dexterity</button>
+                        <button class="saving-throw" data-modifier="+3">Constitution</button>
+                        <button class="saving-throw" data-modifier="+1">Intelligence</button>
+                        <button class="saving-throw proficient" data-modifier="+5">Wisdom</button>
+                        <button class="saving-throw proficient" data-modifier="+2">Charisma</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
                     </div>
                 </div>
             </div>

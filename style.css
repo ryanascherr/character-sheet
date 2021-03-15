@@ -16,6 +16,10 @@
     color: black;
 }
 
+body {
+   
+}
+
 header {
     text-align: center;
     margin-top: 2%;
@@ -71,6 +75,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 50px;
 }
 
 .skills {
@@ -83,7 +88,6 @@ h3 {
 button {
     padding: 5px;
     margin: 5px;
-    background-color: lightblue;
 }
 
 button:hover {
@@ -118,5 +122,20 @@ button:hover {
 }
 
 .spell-levels button {
-    width: 100%;
+    width: 90%;
+    font-size: 30px;
 }
+
+.proficient {
+    background-color: rgb(35, 108, 192);
+    color: white;
+}
+
+.advantage {
+    color: rgb(212, 209, 32);
+}
+
+.disadvantage {
+    color: red;
+}
+

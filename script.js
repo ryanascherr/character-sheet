@@ -13,7 +13,7 @@ var cureWounds = document.querySelector("#cure-wounds");
 var tollTheDead = document.querySelector("#toll-the-dead");
 var guidingBolt = document.querySelector("#guiding-bolt");
 var holyHaymaker = document.querySelector("#holy-haymaker");
-var test = document.querySelector("#test");
+var attacks = document.querySelector("#attacks");
 var rollType = document.querySelectorAll(".roll-type");
 
 var proficiencyBonus = 5;
@@ -22,7 +22,8 @@ var spellAttack = proficiencyBonus + castingModifier;
 var spellLevel;
 var whatRoll;
 
-test.addEventListener("click", function(event){
+
+attacks.addEventListener("click", function(event){
 
     var element = event.target;
 
@@ -160,8 +161,126 @@ test.addEventListener("click", function(event){
                 }
             }
         }
-    }})
+    }
+})
+
+skills.addEventListener("click", function(event){
+    var element = event.target;
+
+    if (element.matches(".skill")) {
+        var modifier = element.getAttribute("data-modifier");
+        var modifierNumber = parseInt(modifier);
+        console.log(modifierNumber);
+        var roll1 = Math.floor(Math.random() * 20 + 1);
+        console.log(roll1);
+        var roll2 = Math.floor(Math.random() * 20 + 1);
+        console.log(roll2);
+        var result1 = roll1 + modifierNumber;
+        var result2 = roll2 + modifierNumber;
+        console.log(result1, result2);
+        if (roll1 === 1) {
+            document.getElementById("skill-roll-1").setAttribute("class", "natural-1");
+        } else if (roll2 === 1) {
+            document.getElementById("skill-roll-2").setAttribute("class", "natural-1");
+        } else if (roll1 === 20) {
+            document.getElementById("skill-roll-1").setAttribute("class", "natural-20");
+        } else if (roll2 === 20) {
+            document.getElementById("skill-roll-2").setAttribute("class", "natural-20");
+        } else {
+            document.getElementById("skill-roll-1").setAttribute("class", "plain");
+            document.getElementById("skill-roll-2").setAttribute("class", "plain");
+        }
+        document.getElementById("skill-roll-1").textContent = result1;
+        document.getElementsByClassName("space")[0].textContent = " | ";
+        document.getElementById("skill-roll-2").textContent = result2;
+    }
+})
+
+savingThrows.addEventListener("click", function(event){
+    var element = event.target;
+
+    if (element.matches(".saving-throw")) {
+        var modifier = element.getAttribute("data-modifier");
+        var modifierNumber = parseInt(modifier);
+        console.log(modifierNumber);
+        var roll1 = Math.floor(Math.random() * 20 + 1);
+        console.log(roll1);
+        var roll2 = Math.floor(Math.random() * 20 + 1);
+        console.log(roll2);
+        var result1 = roll1 + modifierNumber;
+        var result2 = roll2 + modifierNumber;
+        console.log(result1, result2);
+        if (roll1 === 1) {
+            document.getElementById("saving-throw-roll-1").setAttribute("class", "natural-1");
+        } else if (roll2 === 1) {
+            document.getElementById("saving-throw-roll-2").setAttribute("class", "natural-1");
+        } else if (roll1 === 20) {
+            document.getElementById("saving-throw-roll-1").setAttribute("class", "natural-20");
+        } else if (roll2 === 20) {
+            document.getElementById("saving-throw-roll-2").setAttribute("class", "natural-20");
+        } else {
+            document.getElementById("saving-throw-roll-1").setAttribute("class", "plain");
+            document.getElementById("saving-throw-roll-2").setAttribute("class", "plain");
+        }
+        document.getElementById("saving-throw-roll-1").textContent = result1;
+        document.getElementsByClassName("space")[2].textContent = " | ";
+        document.getElementById("saving-throw-roll-2").textContent = result2;
+    }
+})
+
+spellLevels.addEventListener("click", function(event){
+    var element = event.target;
+
+    for (var i = 0; i < allSpellLevels.length; i++) {
+        allSpellLevels[i].setAttribute("class", "plain spell-level");
+    }
+
+    if (element.matches(".spell-level")) {
+        var level = element.getAttribute("data-level");
         
+        element.setAttribute("class", "selected spell-level");
+
+        spellLevel = parseInt(level);
+    }
+})
+
+healingWord.addEventListener("click", function(){
+    var roll = 0;
+    for (i = 0; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 4 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2
+
+    if (!spellLevel) {
+        document.getElementsByClassName("space")[1].textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("heals").textContent = "Heal: " + result;
+        document.getElementsByClassName("space")[1].textContent = " | ";
+        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
+    }
+})
+
+cureWounds.addEventListener("click", function(){
+    var roll = 0;
+    for (i = 0; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 8 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2
+
+    if (!spellLevel) {
+        document.getElementsByClassName("space")[1].textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("heals").textContent = "Heal: " + result;
+        document.getElementsByClassName("space")[1].textContent = " | ";
+        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
+    }
+})
     
 /*
 normal.addEventListener("click", function(){
@@ -230,124 +349,6 @@ disadvantage.addEventListener("click", function(){
     }
 })
 */
-
-skills.addEventListener("click", function(event){
-    var element = event.target;
-
-    if (element.matches(".skill")) {
-        var modifier = element.getAttribute("data-modifier");
-        var modifierNumber = parseInt(modifier);
-        console.log(modifierNumber);
-        var roll1 = Math.floor(Math.random() * 20 + 1);
-        console.log(roll1);
-        var roll2 = Math.floor(Math.random() * 20 + 1);
-        console.log(roll2);
-        var result1 = roll1 + modifierNumber;
-        var result2 = roll2 + modifierNumber;
-        console.log(result1, result2);
-        if (roll1 === 1) {
-            document.getElementById("skill-roll-1").setAttribute("class", "natural-1");
-        } else if (roll2 === 1) {
-            document.getElementById("skill-roll-2").setAttribute("class", "natural-1");
-        } else if (roll1 === 20) {
-            document.getElementById("skill-roll-1").setAttribute("class", "natural-20");
-        } else if (roll2 === 20) {
-            document.getElementById("skill-roll-2").setAttribute("class", "natural-20");
-        } else {
-            document.getElementById("skill-roll-1").setAttribute("class", "plain");
-            document.getElementById("skill-roll-2").setAttribute("class", "plain");
-        }
-        document.getElementById("skill-roll-1").textContent = result1;
-        document.getElementsByClassName("space")[0].textContent = " | ";
-        document.getElementById("skill-roll-2").textContent = result2;
-    }
-})
-
-savingThrows.addEventListener("click", function(event){
-    var element = event.target;
-
-    if (element.matches(".saving-throw")) {
-        var modifier = element.getAttribute("data-modifier");
-        var modifierNumber = parseInt(modifier);
-        console.log(modifierNumber);
-        var roll1 = Math.floor(Math.random() * 20 + 1);
-        console.log(roll1);
-        var roll2 = Math.floor(Math.random() * 20 + 1);
-        console.log(roll2);
-        var result1 = roll1 + modifierNumber;
-        var result2 = roll2 + modifierNumber;
-        console.log(result1, result2);
-        if (roll1 === 1) {
-            document.getElementById("saving-throw-roll-1").setAttribute("class", "natural-1");
-        } else if (roll2 === 1) {
-            document.getElementById("saving-throw-roll-2").setAttribute("class", "natural-1");
-        } else if (roll1 === 20) {
-            document.getElementById("saving-throw-roll-1").setAttribute("class", "natural-20");
-        } else if (roll2 === 20) {
-            document.getElementById("saving-throw-roll-2").setAttribute("class", "natural-20");
-        } else {
-            document.getElementById("saving-throw-roll-1").setAttribute("class", "plain");
-            document.getElementById("saving-throw-roll-2").setAttribute("class", "plain");
-        }
-        document.getElementById("saving-throw-roll-1").textContent = result1;
-        document.getElementsByClassName("space")[1].textContent = " | ";
-        document.getElementById("saving-throw-roll-2").textContent = result2;
-    }
-})
-
-spellLevels.addEventListener("click", function(event){
-    var element = event.target;
-
-    for (var i = 0; i < allSpellLevels.length; i++) {
-        allSpellLevels[i].setAttribute("class", "plain spell-level");
-    }
-
-    if (element.matches(".spell-level")) {
-        var level = element.getAttribute("data-level");
-        
-        element.setAttribute("class", "selected spell-level");
-
-        spellLevel = parseInt(level);
-    }
-})
-
-healingWord.addEventListener("click", function(){
-    var roll = 0;
-    for (i = 0; i < spellLevel; i ++) {
-        roll += Math.floor(Math.random() * 4 + 1);
-        console.log(roll);
-    }
-    console.log(roll);
-    var result = roll + 5 + spellLevel + 2;
-    var selfHealing = spellLevel + 2
-
-    if (!spellLevel) {
-        document.getElementsByClassName("space")[2].textContent = "Please select a spell level.";
-    } else {
-        document.getElementById("heals").textContent = "Heal: " + result;
-        document.getElementsByClassName("space")[2].textContent = " | ";
-        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
-    }
-})
-
-cureWounds.addEventListener("click", function(){
-    var roll = 0;
-    for (i = 0; i < spellLevel; i ++) {
-        roll += Math.floor(Math.random() * 8 + 1);
-        console.log(roll);
-    }
-    console.log(roll);
-    var result = roll + 5 + spellLevel + 2;
-    var selfHealing = spellLevel + 2
-
-    if (!spellLevel) {
-        document.getElementsByClassName("space")[2].textContent = "Please select a spell level.";
-    } else {
-        document.getElementById("heals").textContent = "Heal: " + result;
-        document.getElementsByClassName("space")[2].textContent = " | ";
-        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
-    }
-})
 
 /*
 tollTheDead.addEventListener("click", function(){
