@@ -5,13 +5,13 @@ var advantage = document.querySelector("#advantage");
 var disadvantage = document.querySelector("#disadvantage");
 var skills = document.querySelector(".skills");
 var savingThrows = document.querySelector(".saving-throws");
+var spellLevels = document.querySelector(".spell-levels");
+var allSpellLevels = document.querySelectorAll(".spell-level");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
 var spellAttack = proficiencyBonus + castingModifier;
-var primaryStats;
-//var skills;
-var savingThrows;
+var spellLevel;
 
 normal.addEventListener("click", function(){
     var roll = Math.floor(Math.random() * 20 + 1);
@@ -140,6 +140,22 @@ savingThrows.addEventListener("click", function(event){
         document.getElementById("saving-throw-roll-1").textContent = result1;
         document.getElementsByClassName("space")[1].textContent = " | ";
         document.getElementById("saving-throw-roll-2").textContent = result2;
+    }
+})
+
+spellLevels.addEventListener("click", function(event){
+    var element = event.target;
+
+    for (var i = 0; i < allSpellLevels.length; i++) {
+        allSpellLevels[i].setAttribute("class", "plain spell-level");
+    }
+
+    if (element.matches(".spell-level")) {
+        var level = element.getAttribute("data-level");
+        
+        element.setAttribute("class", "selected spell-level");
+
+        spellLevel = parseInt(level);
     }
 })
 

@@ -15,11 +15,13 @@
     <main>
         <div class="container">
             <h2>Spell Attack Roll (+10)</h2>
-            <button id="normal">Normal</button>
-            <button id="advantage">Advantage</button>
-            <button id="disadvantage">Disadvantage</button>
+            <div class="rolls">
+                <button id="normal">Normal</button>
+                <button id="advantage">Advantage</button>
+                <button id="disadvantage">Disadvantage</button>
+            </div>
             <div class="result">
-                <h3 id="spell-attack-roll-result" class=""></h3>
+                <h3 id="spell-attack-roll-result"></h3>
             </div>
         </div>
         <div class="container">
@@ -60,6 +62,24 @@
             </div>
             <div class="result">
                 <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Healing Spells</h2>
+            <button>Healing Word</button>
+        </div>
+        <div class="container">
+            <h2>Spell Levels</h2>
+            <div class="spell-levels">
+                <button class="spell-level" data-level="1">1</button>
+                <button class="spell-level" data-level="2">2</button>
+                <button class="spell-level" data-level="3">3</button>
+                <button class="spell-level" data-level="4">4</button>
+                <button class="spell-level" data-level="5">5</button>
+                <button class="spell-level" data-level="6">6</button>
+                <button class="spell-level" data-level="7">7</button>
+                <button class="spell-level" data-level="8">8</button>
+                <button class="spell-level" data-level="9">9</button>
             </div>
         </div>
     </main>

@@ -18,11 +18,12 @@
 
 header {
     text-align: center;
-    margin-top: 2%;
+    margin: 2%;
 }
 
 main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
@@ -30,7 +31,7 @@ main {
     border: 2px solid teal;
     text-align: center;
     padding: 10px;
-    width: 400px;
+    width: 30%;
 }
 
 h2 {
@@ -67,13 +68,18 @@ button:hover {
     width: 30%;
 }
 
-.saving-throws {
+.saving-throws, .rolls {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-.saving-throws button {
+.saving-throws button, .rolls button {
     width: 50%;
+}
+
+.selected {
+    background-color: green;
+    color: white;
 }
