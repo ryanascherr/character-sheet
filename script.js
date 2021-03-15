@@ -11,30 +11,67 @@ var skills;
 var savingThrows;
 
 normal.addEventListener("click", function(){
-    var result = Math.floor(Math.random() * 20 + 1 + spellAttack);
-    spellAttackRollResult.textContent = result;
+    var roll = Math.floor(Math.random() * 20 + 1);
+    var result = roll + spellAttack;
+
+    console.log(roll);
+
+    if (roll === 1) {
+        spellAttackRollResult.setAttribute("class", "natural-1");
+        spellAttackRollResult.textContent = "CRITICAL MISS";
+    } else if (roll === 20) {
+        spellAttackRollResult.setAttribute("class", "natural-20");
+        spellAttackRollResult.textContent = "CRITICAL HIT";
+    } else {
+        spellAttackRollResult.setAttribute("class", "plain");
+        spellAttackRollResult.textContent = result;
+    }
 })
 
 advantage.addEventListener("click", function(){
-    var result1 = Math.floor(Math.random() * 20 + 1 + spellAttack);
-    var result2 = Math.floor(Math.random() * 20 + 1 + spellAttack);
-    console.log(result1);
-    console.log(result2);
-    if (result1 > result2) {
+    var roll1 = Math.floor(Math.random() * 20 + 1);
+    var roll2 = Math.floor(Math.random() * 20 + 1);
+    var result1 = roll1 + spellAttack;
+    var result2 = roll2 + spellAttack;
+
+    console.log(roll1);
+    console.log(roll2);
+
+    if (roll1 === roll2 && roll1 === 1) {
+        spellAttackRollResult.setAttribute("class", "natural-1");
+        spellAttackRollResult.textContent = "CRITICAL MISS";
+    } else if ((roll1 === roll2 && roll1 === 20) || (roll1 > roll2 && roll1 === 20) || (roll1 < roll2 && roll2 === 20)) {
+        spellAttackRollResult.setAttribute("class", "natural-20");
+        spellAttackRollResult.textContent = "CRITICAL HIT";
+    } else if (roll1 > roll2) {
+        spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result1;
-    } else {
+    } else if (roll1 < roll2) {
+        spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result2;
     }
 })
 
 disadvantage.addEventListener("click", function(){
-    var result1 = Math.floor(Math.random() * 20 + 1 + spellAttack);
-    var result2 = Math.floor(Math.random() * 20 + 1 + spellAttack);
-    console.log(result1);
-    console.log(result2);
-    if (result1 > result2) {
+    var roll1 = Math.floor(Math.random() * 20 + 1);
+    var roll2 = Math.floor(Math.random() * 20 + 1);
+    var result1 = roll1 + spellAttack;
+    var result2 = roll2 + spellAttack;
+
+    console.log(roll1);
+    console.log(roll2);
+
+    if (roll1 === roll2 && roll1 === 20) {
+        spellAttackRollResult.setAttribute("class", "natural-20");
+        spellAttackRollResult.textContent = "CRITICAL HIT";
+    } else if ((roll1 === roll2 && roll1 === 1) || (roll1 < roll2 && roll1 === 1) || (roll1 > roll2 && roll2 === 1)) {
+        spellAttackRollResult.setAttribute("class", "natural-1");
+        spellAttackRollResult.textContent = "CRITICAL MISS";
+    } else if (roll1 > roll2) {
+        spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result2;
-    } else {
+    } else if (roll1 < roll2) {
+        spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result1;
     }
 })
