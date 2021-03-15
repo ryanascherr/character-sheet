@@ -169,6 +169,7 @@ skills.addEventListener("click", function(event){
 
     if (element.matches(".skill")) {
         var modifier = element.getAttribute("data-modifier");
+        var name = element.getAttribute("data-name")
         var modifierNumber = parseInt(modifier);
         console.log(modifierNumber);
         var roll1 = Math.floor(Math.random() * 20 + 1);
@@ -190,6 +191,7 @@ skills.addEventListener("click", function(event){
             document.getElementById("skill-roll-1").setAttribute("class", "plain");
             document.getElementById("skill-roll-2").setAttribute("class", "plain");
         }
+        document.getElementById("skill-name").textContent = name + ": ";
         document.getElementById("skill-roll-1").textContent = result1;
         document.getElementsByClassName("space")[0].textContent = " | ";
         document.getElementById("skill-roll-2").textContent = result2;
