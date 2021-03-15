@@ -66,3 +66,14 @@ button:hover {
 .skills button {
     width: 30%;
 }
+
+.saving-throws {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.saving-throws button {
+    width: 50%;
+}
