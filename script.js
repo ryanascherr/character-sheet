@@ -1,5 +1,6 @@
 var spellAttackRollResult = document.querySelector("#spell-attack-roll-result");
 var skillsRollResult = document.querySelector("#skills-roll-result");
+var healingSpellResult = document.querySelector("#healing-spell-result");
 var normal = document.querySelector("#normal");
 var advantage = document.querySelector("#advantage");
 var disadvantage = document.querySelector("#disadvantage");
@@ -7,6 +8,7 @@ var skills = document.querySelector(".skills");
 var savingThrows = document.querySelector(".saving-throws");
 var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
+var healingWord = document.querySelector("#healing-word");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -156,6 +158,25 @@ spellLevels.addEventListener("click", function(event){
         element.setAttribute("class", "selected spell-level");
 
         spellLevel = parseInt(level);
+    }
+})
+
+healingWord.addEventListener("click", function(){
+    var roll = 0;
+    for (i = 0; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 4 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2
+
+    if (!spellLevel) {
+        document.getElementsByClassName("space")[2].textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("heals").textContent = "Heal: " + result;
+        document.getElementsByClassName("space")[2].textContent = " | ";
+        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
     }
 })
 
