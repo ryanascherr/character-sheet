@@ -12,6 +12,7 @@ var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
 var tollTheDead = document.querySelector("#toll-the-dead");
 var guidingBolt = document.querySelector("#guiding-bolt");
+var holyHaymaker = document.querySelector("#holy-haymaker");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -26,13 +27,13 @@ normal.addEventListener("click", function(){
 
     if (roll === 1) {
         spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS";
+        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
     } else if (roll === 20) {
         spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT";
+        spellAttackRollResult.textContent = "CRITICAL HIT! :)";
     } else {
         spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = roll + " + " + spellAttack + " = " + result;
+        spellAttackRollResult.textContent = result;
     }
 })
 
@@ -47,10 +48,10 @@ advantage.addEventListener("click", function(){
 
     if (roll1 === roll2 && roll1 === 1) {
         spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS";
+        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
     } else if ((roll1 === roll2 && roll1 === 20) || (roll1 > roll2 && roll1 === 20) || (roll1 < roll2 && roll2 === 20)) {
         spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT";
+        spellAttackRollResult.textContent = "CRITICAL HIT :)";
     } else if (roll1 > roll2 || roll1 === roll2) {
         spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result1;
@@ -71,10 +72,10 @@ disadvantage.addEventListener("click", function(){
 
     if (roll1 === roll2 && roll1 === 20) {
         spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT";
+        spellAttackRollResult.textContent = "CRITICAL HIT! :)";
     } else if ((roll1 === roll2 && roll1 === 1) || (roll1 < roll2 && roll1 === 1) || (roll1 > roll2 && roll2 === 1)) {
         spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS";
+        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
     } else if (roll1 > roll2) {
         spellAttackRollResult.setAttribute("class", "plain");
         spellAttackRollResult.textContent = result2;
@@ -227,3 +228,21 @@ guidingBolt.addEventListener("click", function(){
     }
 
 })
+
+holyHaymaker.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1);
+
+    console.log(roll);
+
+    for (i = 1; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 10 + 1);
+        console.log(roll);
+    }
+
+    if (!spellLevel) {
+        document.getElementById("damage-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
+    }
+})
+

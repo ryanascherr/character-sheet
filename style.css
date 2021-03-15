@@ -39,6 +39,10 @@ h2 {
     margin: 10px;
 }
 
+h3 {
+    font-size: 20px;
+}
+
 .result {
     margin: 10px;
     border: 1px solid salmon;
