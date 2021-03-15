@@ -38,8 +38,13 @@ test.addEventListener("click", function(event){
     //to display d20 roll based on roll type
     } else if (element.matches(".attack-spell")) {
 
+
+        if (!whatRoll) {
+            document.getElementById("roll-result").setAttribute("class", "plain");
+            document.getElementById("roll-result").textContent = "Please select a roll type.";
+        }
         //if straight roll
-        if (whatRoll === "normal") {
+        else if (whatRoll === "normal") {
 
             var roll = Math.floor(Math.random() * 20 + 1);
             var result = roll + spellAttack;

@@ -18,7 +18,7 @@
 
 header {
     text-align: center;
-    margin: 2%;
+    margin-top: 2%;
 }
 
 main {
@@ -30,9 +30,14 @@ main {
 .container {
     border: 2px solid teal;
     text-align: center;
-    padding: 10px;
-    width: 30%;
-    margin-bottom: 2%;
+    margin: 0 1% 1% 0;
+    width: 48%;
+    padding: 2%;
+}
+
+.different {
+    width: 100%;
+    padding: 2%;
 }
 
 h2 {
@@ -43,10 +48,26 @@ h3 {
     font-size: 20px;
 }
 
+.flex {
+    display: flex;
+}
+
+.one {
+    width: 20%;
+    margin: 2% 0 0 2%;
+}
+
+.all {
+    width: 80%;
+    margin: 2% 1% 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .result {
     margin: 10px;
     border: 1px solid salmon;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,5 +118,5 @@ button:hover {
 }
 
 .spell-levels button {
-    width: 30%;
+    width: 100%;
 }

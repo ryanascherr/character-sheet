@@ -14,100 +14,111 @@
     </header>
 
     <main>
-        <div class="container" id="test">
-            <h2>Spell Attack Roll (+10)</h2>
-            <div class="rolls">
-                <button class="roll-type" data-attribute="normal">Normal</button>
-                <button class="roll-type" data-attribute="adv">Advantage</button>
-                <button class="roll-type" data-attribute="dis">Disadvantage</button>
+
+        <div class="flex">
+            <div class="one">
+                <div class="container different">
+                    <h2>Spell Levels</h2>
+                    <div class="spell-levels">
+                        <button class="spell-level" data-level="1">1</button>
+                        <button class="spell-level" data-level="2">2</button>
+                        <button class="spell-level" data-level="3">3</button>
+                        <button class="spell-level" data-level="4">4</button>
+                        <button class="spell-level" data-level="5">5</button>
+                        <button class="spell-level" data-level="6">6</button>
+                        <button class="spell-level" data-level="7">7</button>
+                        <button class="spell-level" data-level="8">8</button>
+                        <button class="spell-level" data-level="9">9</button>
+                    </div>
+                </div>
             </div>
-            <div class="attack-roll-spells">
-                <button class="attack-spell" id="guiding-bolt">Guiding Bolt</button>
-                <button class="attack-spell" id="holy-haymaker">Holy Haymaker</button>
-                <button class="attack-spell" id="spiritual-weapon">Spiritual Weapon</button>
-            </div>
-            <div class="result">
-                <h3 id="spell-attack-roll-result"><span id="roll-result"></span><br><span id="damage-result"></span></h3>
-            </div>
-        </div>
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills">
-                <button class="skill" data-modifier="-1">Acrobatics</button>
-                <button class="skill" data-modifier="5">Animal Handling</button>
-                <button class="skill" data-modifier="1">Arcana</button>
-                <button class="skill" data-modifier="-1">Athletics</button>
-                <button class="skill" data-modifier="2">Deception</button>
-                <button class="skill" data-modifier="1">History</button>
-                <button class="skill" data-modifier="10">Insight</button>
-                <button class="skill" data-modifier="2">Intimidation</button>
-                <button class="skill" data-modifier="1">Investigation</button>
-                <button class="skill" data-modifier="10">Medicine</button>
-                <button class="skill" data-modifier="1">Nature</button>
-                <button class="skill" data-modifier="10">Perception</button>
-                <button class="skill" data-modifier="7">Performance</button>
-                <button class="skill" data-modifier="7">Persuasion</button>
-                <button class="skill" data-modifier="5">Religion</button>
-                <button class="skill" data-modifier="-1">Sleight of Hand</button>
-                <button class="skill" data-modifier="-1">Stealth</button>
-                <button class="skill" data-modifier="5">Survival</button>
-            </div>
-            <div class="result">
-                <h3 id="skills-roll-result"><span id="skill-roll-1"></span><span class="space"></span><span id="skill-roll-2"></span></h3>
-            </div>
-        </div>
-        <div class="container">
-            <h2>Saving Throws</h2>
-            <div class="saving-throws">
-                <button class="saving-throw" data-modifier="-1">Strength</button>
-                <button class="saving-throw" data-modifier="-1">Dexterity</button>
-                <button class="saving-throw" data-modifier="+3">Constitution</button>
-                <button class="saving-throw" data-modifier="+1">Intelligence</button>
-                <button class="saving-throw" data-modifier="+5">Wisdom</button>
-                <button class="saving-throw" data-modifier="+2">Charisma</button>
-            </div>
-            <div class="result">
-                <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
-            </div>
-        </div>
-        <div class="container">
-            <div class="healing-spells">
-            <h2>Healing Spells</h2>
-                <button id="healing-word">Healing Word</button>
-                <button id="cure-wounds">Cure Wounds</button>
-            </div>
-            <div class="result">
-                <h3 id="healing-spell-result"><span id="heals"></span><span class="space"></span><span id="self-heals"></span></h3>
-            </div>
-        </div>
-        <!--
-        <div class="container">
-            <div class="damage-spells">
-            <h2>Damage Spells</h2>
-                <button id="toll-the-dead">Toll the Dead</button>
-                <button id="guiding-bolt">Guiding Bolt</button>
-                <button id="holy-haymaker">Holy Haymaker</button>
-                <button id="spiritual-weapon">Spiritual Weapon</button>
-            </div>
-            <div class="result">
-                <h3 id="damage-result"><span id="ttd-1"></span><span class="space"></span><span id="ttd-2"></span><br><span id="blessed-strikes"></span></h3>
-            </div>
-        </div>
-        -->
-        <div class="container">
-            <h2>Spell Levels</h2>
-            <div class="spell-levels">
-                <button class="spell-level" data-level="1">1</button>
-                <button class="spell-level" data-level="2">2</button>
-                <button class="spell-level" data-level="3">3</button>
-                <button class="spell-level" data-level="4">4</button>
-                <button class="spell-level" data-level="5">5</button>
-                <button class="spell-level" data-level="6">6</button>
-                <button class="spell-level" data-level="7">7</button>
-                <button class="spell-level" data-level="8">8</button>
-                <button class="spell-level" data-level="9">9</button>
+            <div class="all">
+                <div class="container" id="test">
+                    <h2>Spell Attack Roll (+10)</h2>
+                    <div class="rolls">
+                        <button class="roll-type" data-attribute="normal">Normal</button>
+                        <button class="roll-type" data-attribute="adv">Advantage</button>
+                        <button class="roll-type" data-attribute="dis">Disadvantage</button>
+                    </div>
+                    <div class="attack-roll-spells">
+                        <button class="attack-spell" id="guiding-bolt">Guiding Bolt</button>
+                        <button class="attack-spell" id="holy-haymaker">Holy Haymaker</button>
+                        <button class="attack-spell" id="spiritual-weapon">Spiritual Weapon</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="spell-attack-roll-result"><span id="roll-result"></span><br><span id="damage-result"></span></h3>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h2>Skills</h2>
+                    <div class="skills">
+                        <button class="skill" data-modifier="-1">Acrobatics</button>
+                        <button class="skill" data-modifier="5">Animal Handling</button>
+                        <button class="skill" data-modifier="1">Arcana</button>
+                        <button class="skill" data-modifier="-1">Athletics</button>
+                        <button class="skill" data-modifier="2">Deception</button>
+                        <button class="skill" data-modifier="1">History</button>
+                        <button class="skill" data-modifier="10">Insight</button>
+                        <button class="skill" data-modifier="2">Intimidation</button>
+                        <button class="skill" data-modifier="1">Investigation</button>
+                        <button class="skill" data-modifier="10">Medicine</button>
+                        <button class="skill" data-modifier="1">Nature</button>
+                        <button class="skill" data-modifier="10">Perception</button>
+                        <button class="skill" data-modifier="7">Performance</button>
+                        <button class="skill" data-modifier="7">Persuasion</button>
+                        <button class="skill" data-modifier="5">Religion</button>
+                        <button class="skill" data-modifier="-1">Sleight of Hand</button>
+                        <button class="skill" data-modifier="-1">Stealth</button>
+                        <button class="skill" data-modifier="5">Survival</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="skills-roll-result"><span id="skill-roll-1"></span><span class="space"></span><span id="skill-roll-2"></span></h3>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <h2>Saving Throws</h2>
+                    <div class="saving-throws">
+                        <button class="saving-throw" data-modifier="-1">Strength</button>
+                        <button class="saving-throw" data-modifier="-1">Dexterity</button>
+                        <button class="saving-throw" data-modifier="+3">Constitution</button>
+                        <button class="saving-throw" data-modifier="+1">Intelligence</button>
+                        <button class="saving-throw" data-modifier="+5">Wisdom</button>
+                        <button class="saving-throw" data-modifier="+2">Charisma</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="saving-throw-result"><span id="saving-throw-roll-1"></span><span class="space"></span><span id="saving-throw-roll-2"></span></h3>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="healing-spells">
+                    <h2>Healing Spells</h2>
+                        <button id="healing-word">Healing Word</button>
+                        <button id="cure-wounds">Cure Wounds</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="healing-spell-result"><span id="heals"></span><span class="space"></span><span id="self-heals"></span></h3>
+                    </div>
+                </div>
             </div>
         </div>
+                <!--
+                <div class="container">
+                    <div class="damage-spells">
+                    <h2>Damage Spells</h2>
+                        <button id="toll-the-dead">Toll the Dead</button>
+                        <button id="guiding-bolt">Guiding Bolt</button>
+                        <button id="holy-haymaker">Holy Haymaker</button>
+                        <button id="spiritual-weapon">Spiritual Weapon</button>
+                    </div>
+                    <div class="result">
+                        <h3 id="damage-result"><span id="ttd-1"></span><span class="space"></span><span id="ttd-2"></span><br><span id="blessed-strikes"></span></h3>
+                    </div>
+                </div>
+                -->
+                
     </main>
 
     <script src="./script.js"></script>
