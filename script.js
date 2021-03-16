@@ -14,6 +14,8 @@ var tollTheDead = document.querySelector("#toll-the-dead");
 var spiritGuardians = document.querySelector("#spirit-guardians");
 var attacks = document.querySelector("#attacks");
 var rollType = document.querySelectorAll(".roll-type");
+var clearAll = document.querySelector("#clear-all");
+var outputFields = document.querySelectorAll(".result");
 
 var proficiencyBonus = 5;
 var castingModifier = 5;
@@ -325,5 +327,32 @@ tollTheDead.addEventListener("click", function(){
     var blessedStrike = Math.floor(Math.random() * 8 + 1);
 
     document.getElementById("damage-spell-result").innerHTML = "Damage: " + noDamageRoll + " | " + damageRoll + " Necrotic" + "<br>Blessed Strike: " + blessedStrike + " Radiant" + "<br>Total: " + (noDamageRoll+blessedStrike) + " | " + (damageRoll+blessedStrike);
+})
+
+spiritGuardians.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+
+    for (i = 3; i < spellLevel; i++) {
+        roll += Math.floor(Math.random() * 8 + 1);
+        console.log(roll); 
+    }
+
+    if (!spellLevel || spellLevel < 3) {
+        document.getElementById("damage-spell-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("damage-spell-result").textContent = "Damage: " + roll + " Radiant";
+    }
+})
+
+clearAll.addEventListener("click", function(){
+    for (i = 0; i < outputFields.length; i++) {
+        outputFields[i].textContent = "";
+    }
+    for (var i = 0; i < allSpellLevels.length; i++) {
+        allSpellLevels[i].setAttribute("class", "plain spell-level");
+    }
+    for (var i = 0; i < rollType.length; i++) {
+        rollType[i].setAttribute("class", "plain roll-type");
+    }
 })
 
