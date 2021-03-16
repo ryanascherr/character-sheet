@@ -11,8 +11,7 @@ var allSpellLevels = document.querySelectorAll(".spell-level");
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
 var tollTheDead = document.querySelector("#toll-the-dead");
-var guidingBolt = document.querySelector("#guiding-bolt");
-var holyHaymaker = document.querySelector("#holy-haymaker");
+var spiritGuardians = document.querySelector("#spirit-guardians");
 var attacks = document.querySelector("#attacks");
 var rollType = document.querySelectorAll(".roll-type");
 
@@ -319,116 +318,12 @@ cureWounds.addEventListener("click", function(){
         document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
     }
 })
-    
-/*
-normal.addEventListener("click", function(){
-    var roll = Math.floor(Math.random() * 20 + 1);
-    var result = roll + spellAttack;
 
-    console.log(roll);
-
-    if (roll === 1) {
-        spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
-    } else if (roll === 20) {
-        spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT! :)";
-    } else {
-        spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result;
-    }
-})
-
-advantage.addEventListener("click", function(){
-    var roll1 = Math.floor(Math.random() * 20 + 1);
-    var roll2 = Math.floor(Math.random() * 20 + 1);
-    var result1 = roll1 + spellAttack;
-    var result2 = roll2 + spellAttack;
-
-    console.log(roll1);
-    console.log(roll2);
-
-    if (roll1 === roll2 && roll1 === 1) {
-        spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
-    } else if ((roll1 === roll2 && roll1 === 20) || (roll1 > roll2 && roll1 === 20) || (roll1 < roll2 && roll2 === 20)) {
-        spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT :)";
-    } else if (roll1 > roll2 || roll1 === roll2) {
-        spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result1;
-    } else if (roll1 < roll2) {
-        spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result2;
-    }
-})
-
-disadvantage.addEventListener("click", function(){
-    var roll1 = Math.floor(Math.random() * 20 + 1);
-    var roll2 = Math.floor(Math.random() * 20 + 1);
-    var result1 = roll1 + spellAttack;
-    var result2 = roll2 + spellAttack;
-
-    console.log(roll1);
-    console.log(roll2);
-
-    if (roll1 === roll2 && roll1 === 20) {
-        spellAttackRollResult.setAttribute("class", "natural-20");
-        spellAttackRollResult.textContent = "CRITICAL HIT! :)";
-    } else if ((roll1 === roll2 && roll1 === 1) || (roll1 < roll2 && roll1 === 1) || (roll1 > roll2 && roll2 === 1)) {
-        spellAttackRollResult.setAttribute("class", "natural-1");
-        spellAttackRollResult.textContent = "CRITICAL MISS! :(";
-    } else if (roll1 > roll2) {
-        spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result2;
-    } else if (roll1 < roll2 || roll1 === roll2) {
-        spellAttackRollResult.setAttribute("class", "plain");
-        spellAttackRollResult.textContent = result1;
-    }
-})
-*/
-
-/*
 tollTheDead.addEventListener("click", function(){
     var noDamageRoll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
     var damageRoll = Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1) + Math.floor(Math.random() * 12 + 1);
     var blessedStrike = Math.floor(Math.random() * 8 + 1);
 
-    document.getElementById("damage-result").innerHTML = "Damage: " + noDamageRoll + " | " + damageRoll + " Necrotic" + "<br>Blessed Strike: " + blessedStrike + " Radiant";
+    document.getElementById("damage-spell-result").innerHTML = "Damage: " + noDamageRoll + " | " + damageRoll + " Necrotic" + "<br>Blessed Strike: " + blessedStrike + " Radiant" + "<br>Total: " + (noDamageRoll+blessedStrike) + " | " + (damageRoll+blessedStrike);
 })
 
-guidingBolt.addEventListener("click", function(){
-    var roll = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
-
-    console.log(roll);
-
-    for (i = 1; i < spellLevel; i ++) {
-        roll += Math.floor(Math.random() * 6 + 1);
-        console.log(roll);
-    }
-
-    if (!spellLevel) {
-        document.getElementById("damage-result").textContent = "Please select a spell level.";
-    } else {
-        document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Radiant." + "<br> Advantage on next attack.";
-    }
-
-})
-
-holyHaymaker.addEventListener("click", function(){
-    var roll = Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1);
-
-    console.log(roll);
-
-    for (i = 1; i < spellLevel; i ++) {
-        roll += Math.floor(Math.random() * 10 + 1);
-        console.log(roll);
-    }
-
-    if (!spellLevel) {
-        document.getElementById("damage-result").textContent = "Please select a spell level.";
-    } else {
-        document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
-    }
-})
-*/
