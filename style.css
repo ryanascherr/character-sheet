@@ -54,7 +54,10 @@ h3 {
 
 .flex {
     display: flex;
-    align-items: center;
+}
+
+.column {
+    flex-direction: column;
 }
 
 .one {
@@ -142,7 +145,7 @@ button:hover {
     color: red;
 }
 
-ol {
-    list-style-type: none;
+.spell-border {
+    
 }
 

@@ -160,6 +160,40 @@ attacks.addEventListener("click", function(event){
                     document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
                 }
             }
+        } else if (element.matches("#spiritual-weapon")) {
+            var roll;
+
+            if (spellLevel === 2 || spellLevel === 3) {
+                roll = Math.floor(Math.random() * 8 + 1);
+            } else if (spellLevel === 4 || spellLevel === 5) {
+                roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+            } else if (spellLevel === 6 || spellLevel === 7) {
+                roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+            } else if (spellLevel === 8 || spellLevel === 9) {
+                roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+            }
+
+            console.log(roll);
+
+            if (document.getElementById("roll-result").matches(".natural-20")) {
+                if (!spellLevel || spellLevel === 1) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + ((roll*2) + castingModifier) + " Force.";
+                }
+            } else if (document.getElementById("roll-result").matches(".natural-1")) {
+                if (!spellLevel || spellLevel === 1) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "";
+                }
+            } else {
+                if (!spellLevel || spellLevel === 1) {
+                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                } else {
+                    document.getElementById("damage-result").innerHTML = "Damage: " + (roll + castingModifier) + " Force.";
+                }
+            }
         }
     }
 })
