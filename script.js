@@ -13,6 +13,8 @@ var cureWounds = document.querySelector("#cure-wounds");
 var lifeTransference = document.querySelector("#life-transference");
 var tollTheDead = document.querySelector("#toll-the-dead");
 var spiritGuardians = document.querySelector("#spirit-guardians");
+var flameStrike = document.querySelector("#flame-strike");
+var dawn = document.querySelector("#dawn");
 var attacks = document.querySelector("#attacks");
 var rollType = document.querySelectorAll(".roll-type");
 var clearAll = document.querySelector("#clear-all");
@@ -263,7 +265,7 @@ savingThrows.addEventListener("click", function(event){
         }
         document.getElementById("saving-throw-name").textContent = name + " Save: ";
         document.getElementById("saving-throw-roll-1").textContent = result1;
-        document.getElementsByClassName("space")[2].textContent = " | ";
+        document.getElementsByClassName("space")[1].textContent = " | ";
         document.getElementById("saving-throw-roll-2").textContent = result2;
     }
 })
@@ -351,10 +353,44 @@ spiritGuardians.addEventListener("click", function(){
         console.log(roll); 
     }
 
+    var halfDamage = Math.floor(roll/2);
+
     if (!spellLevel || spellLevel < 3) {
         document.getElementById("damage-spell-result").textContent = "Please select a spell level.";
     } else {
-        document.getElementById("damage-spell-result").textContent = "Damage: " + roll + " Radiant";
+        document.getElementById("damage-spell-result").innerHTML = "Full Damage: " + roll + " Radiant" + "<br>Half Damage: " + halfDamage + " Radiant";
+    }
+})
+
+dawn.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1) + Math.floor(Math.random() * 10 + 1);
+
+    var halfDamage = Math.floor(roll/2);
+
+    if (!spellLevel || spellLevel < 5) {
+        document.getElementById("damage-spell-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("damage-spell-result").innerHTML = "Full Damage: " + roll + " Radiant" + "<br>Half Damage: " + halfDamage + " Radiant";
+    }
+    
+})
+
+flameStrike.addEventListener("click", function(){
+    var fireDamage = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
+    var radDamage = Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1);
+
+    for (i = 5; i > spellLevel; i++) {
+        fireDamage += Math.floor(Math.random() * 6 + 1);
+        radDamage += Math.floor(Math.random() * 6 + 1);
+    }
+
+    var halfFire = Math.floor(fireDamage/2);
+    var halfRad = Math.floor(radDamage/2);
+
+    if (!spellLevel || spellLevel < 5) {
+        document.getElementById("damage-spell-result").innerHTML = "Please select a spell level.";
+    } else {
+        document.getElementById("damage-spell-result").innerHTML = "Fire Damage: " + fireDamage + " | " + "Radiant Damage: " + radDamage + "<br>Half Fire: " + halfFire + " | " + "Half Radiant: " + halfRad;
     }
 })
 
