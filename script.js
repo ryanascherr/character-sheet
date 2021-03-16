@@ -10,6 +10,7 @@ var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
+var lifeTransference = document.querySelector("#life-transference");
 var tollTheDead = document.querySelector("#toll-the-dead");
 var spiritGuardians = document.querySelector("#spirit-guardians");
 var attacks = document.querySelector("#attacks");
@@ -291,14 +292,12 @@ healingWord.addEventListener("click", function(){
     }
     console.log(roll);
     var result = roll + 5 + spellLevel + 2;
-    var selfHealing = spellLevel + 2
+    var selfHealing = spellLevel + 2;
 
     if (!spellLevel) {
-        document.getElementsByClassName("space")[1].textContent = "Please select a spell level.";
+        document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
     } else {
-        document.getElementById("heals").textContent = "Heal: " + result;
-        document.getElementsByClassName("space")[1].textContent = " | ";
-        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
+        document.getElementById("healing-spell-result").innerHTML = "Heal: " + result + "<br>Self Heal: " + selfHealing;
     }
 })
 
@@ -310,14 +309,29 @@ cureWounds.addEventListener("click", function(){
     }
     console.log(roll);
     var result = roll + 5 + spellLevel + 2;
-    var selfHealing = spellLevel + 2
+    var selfHealing = spellLevel + 2;
 
     if (!spellLevel) {
-        document.getElementsByClassName("space")[1].textContent = "Please select a spell level.";
+        document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
     } else {
-        document.getElementById("heals").textContent = "Heal: " + result;
-        document.getElementsByClassName("space")[1].textContent = " | ";
-        document.getElementById("self-heals").textContent = "Self Heal: " + selfHealing;
+        document.getElementById("healing-spell-result").innerHTML = "Heal: " + result + "<br>Self Heal: " + selfHealing;
+    }
+})
+
+lifeTransference.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+
+    for (i = 3; i < spellLevel; i++) {
+        roll += Math.floor(Math.random() * 8 + 1);
+        console.log(roll);
+    }
+
+    var selfHealing = spellLevel + 2;
+
+    if (!spellLevel || spellLevel < 3) {
+        document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("healing-spell-result").innerHTML = "Heal: " + roll*2 + "<br>Self Damage: " + roll + "<br>Self Heal: " + selfHealing;
     }
 })
 
