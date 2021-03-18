@@ -121,7 +121,7 @@ attacks.addEventListener("click", function(event){
                 if (!spellLevel) {
                     document.getElementById("damage-result").textContent = "Please select a spell level.";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Radiant." + "<br> Advantage on next attack.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Radiant" + "<br> Advantage on next attack";
                 }
             } else if (document.getElementById("roll-result").matches(".natural-1")) {
                 if (!spellLevel) {
@@ -133,7 +133,7 @@ attacks.addEventListener("click", function(event){
                 if (!spellLevel) {
                     document.getElementById("damage-result").textContent = "Please select a spell level.";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Radiant." + "<br> Advantage on next attack.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Radiant" + "<br> Advantage on next attack";
                 }
             }
 
@@ -149,7 +149,7 @@ attacks.addEventListener("click", function(event){
                 if (!spellLevel) {
                     document.getElementById("damage-result").textContent = "Please select a spell level.";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Necrotic.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll*2 + " Necrotic";
                 }
             } else if (document.getElementById("roll-result").matches(".natural-1")) {
                 if (!spellLevel) {
@@ -159,9 +159,9 @@ attacks.addEventListener("click", function(event){
                 }
             } else {
                 if (!spellLevel) {
-                    document.getElementById("damage-result").textContent = "Please select a spell level.";
+                    document.getElementById("damage-result").textContent = "Please select a spell level";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + roll + " Necrotic";
                 }
             }
         } else if (element.matches("#spiritual-weapon")) {
@@ -183,7 +183,7 @@ attacks.addEventListener("click", function(event){
                 if (!spellLevel || spellLevel === 1) {
                     document.getElementById("damage-result").textContent = "Please select a spell level.";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + ((roll*2) + castingModifier) + " Force.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + ((roll*2) + castingModifier) + " Force";
                 }
             } else if (document.getElementById("roll-result").matches(".natural-1")) {
                 if (!spellLevel || spellLevel === 1) {
@@ -195,7 +195,7 @@ attacks.addEventListener("click", function(event){
                 if (!spellLevel || spellLevel === 1) {
                     document.getElementById("damage-result").textContent = "Please select a spell level.";
                 } else {
-                    document.getElementById("damage-result").innerHTML = "Damage: " + (roll + castingModifier) + " Force.";
+                    document.getElementById("damage-result").innerHTML = "Damage: " + (roll + castingModifier) + " Force";
                 }
             }
         }
