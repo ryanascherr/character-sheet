@@ -1,16 +1,22 @@
 var spellAttackRollResult = document.querySelector("#spell-attack-roll-result");
 var skillsRollResult = document.querySelector("#skills-roll-result");
 var healingSpellResult = document.querySelector("#healing-spell-result");
+
 var normal = document.querySelector("#normal");
 var advantage = document.querySelector("#advantage");
 var disadvantage = document.querySelector("#disadvantage");
+
 var skills = document.querySelector(".skills");
 var savingThrows = document.querySelector(".saving-throws");
 var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
+
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
 var lifeTransference = document.querySelector("#life-transference");
+var massHealingWord = document.querySelector("#mass-healing-word");
+var massCureWounds = document.querySelector("#mass-cure-wounds");
+
 var tollTheDead = document.querySelector("#toll-the-dead");
 var spiritGuardians = document.querySelector("#spirit-guardians");
 var flameStrike = document.querySelector("#flame-strike");
@@ -303,6 +309,23 @@ healingWord.addEventListener("click", function(){
     }
 })
 
+massHealingWord.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 4 + 1);
+    for (i = 3; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 4 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2;
+
+    if (!spellLevel || spellLevel < 3) {
+        document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("healing-spell-result").innerHTML = "Heal: " + result + "<br>Self Heal: " + selfHealing;
+    }
+})
+
 cureWounds.addEventListener("click", function(){
     var roll = 0;
     for (i = 0; i < spellLevel; i ++) {
@@ -314,6 +337,23 @@ cureWounds.addEventListener("click", function(){
     var selfHealing = spellLevel + 2;
 
     if (!spellLevel) {
+        document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
+    } else {
+        document.getElementById("healing-spell-result").innerHTML = "Heal: " + result + "<br>Self Heal: " + selfHealing;
+    }
+})
+
+massCureWounds.addEventListener("click", function(){
+    var roll = Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1) + Math.floor(Math.random() * 8 + 1);
+    for (i = 5; i < spellLevel; i ++) {
+        roll += Math.floor(Math.random() * 8 + 1);
+        console.log(roll);
+    }
+    console.log(roll);
+    var result = roll + 5 + spellLevel + 2;
+    var selfHealing = spellLevel + 2;
+
+    if (!spellLevel || spellLevel < 5) {
         document.getElementById("healing-spell-result").textContent = "Please select a spell level.";
     } else {
         document.getElementById("healing-spell-result").innerHTML = "Heal: " + result + "<br>Self Heal: " + selfHealing;
