@@ -34,7 +34,7 @@ attacks.addEventListener("click", function(event){
     //to set the roll type
     if (element.matches(".roll-type")) {
         for (var i = 0; i < rollType.length; i++) {
-            rollType[i].setAttribute("class", "plain roll-type");
+            rollType[i].setAttribute("class", "roll-type");
         }
         whatRoll = element.getAttribute("data-attribute");
         console.log(whatRoll);
@@ -274,7 +274,7 @@ spellLevels.addEventListener("click", function(event){
     var element = event.target;
 
     for (var i = 0; i < allSpellLevels.length; i++) {
-        allSpellLevels[i].setAttribute("class", "plain spell-level");
+        allSpellLevels[i].setAttribute("class", "spell-level");
     }
 
     if (element.matches(".spell-level")) {

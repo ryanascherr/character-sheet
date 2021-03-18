@@ -6,21 +6,21 @@
 }
 
 .natural-20 {
-    color: green;
+    color: #28B463;
 }
 
 .natural-1 {
-    color: red;
+    color: #E74C3C;
 }
 
 .plain {
     color: black;
 }
 
-header {
+/*header {
     text-align: center;
     margin-top: 2%;
-}
+}*/
 
 main {
     display: flex;
@@ -33,7 +33,6 @@ main {
     text-align: center;
     margin: 0 1% 1% 0;
     width: 48%;
-    padding: 2%;
 }
 
 .different {
@@ -59,12 +58,12 @@ h3 {
 
 .one {
     width: 20%;
-    margin: 2% 0 0 2%;
+    margin: 1% 0 0 1%;
 }
 
 .all {
     width: 80%;
-    margin: 2% 1% 0 0;
+    margin: 1% 0 0 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -108,6 +107,10 @@ button:focus {
     outline: none;
 }
 
+button:active {
+    transform: scale(.99);
+}
+
 .skills button {
     width: 30%;
 }
@@ -136,7 +139,7 @@ button:focus {
 
 .spell-levels button {
     width: 90%;
-    font-size: 30px;
+    font-size: 150%;
 }
 
 .proficient {
