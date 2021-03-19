@@ -78,7 +78,7 @@ button:active {
 
 .spell-levels button {
     width: 90%;
-    font-size: 150%;
+    font-size: 149%;
 }
 
 .selected {
@@ -91,6 +91,14 @@ button:active {
 
 .column {
     flex-direction: column;
+}
+
+.slot-button {
+    width: 25%;
+}
+
+.slot-button-change {
+    width: 40%;
 }
 
 .result {

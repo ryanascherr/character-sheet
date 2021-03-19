@@ -8,8 +8,12 @@ var disadvantage = document.querySelector("#disadvantage");
 
 var skills = document.querySelector(".skills");
 var savingThrows = document.querySelector(".saving-throws");
+
 var spellLevels = document.querySelector(".spell-levels");
 var allSpellLevels = document.querySelectorAll(".spell-level");
+
+var spellSlots = document.querySelector(".spell-slots");
+var allSpellSlots = document.querySelectorAll(".slot-button");
 
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
@@ -26,15 +30,12 @@ var rollType = document.querySelectorAll(".roll-type");
 var clearAll = document.querySelector("#clear-all");
 var outputFields = document.querySelectorAll(".result");
 
-var firstLevelSlot = document.querySelector("#first-level-slot");
-
 var proficiencyBonus = 5;
 var castingModifier = 5;
 var spellAttack = proficiencyBonus + castingModifier;
 var spellLevel;
 var whatRoll;
-
-firstLevelSlot.textContent = 4;
+var slot;
 
 
 attacks.addEventListener("click", function(event){
@@ -296,6 +297,22 @@ spellLevels.addEventListener("click", function(event){
     }
 })
 
+spellSlots.addEventListener("click", function(event){
+    var element = event.target;
+
+    for (var i = 0; i < allSpellSlots.length; i++) {
+        allSpellSlots[i].setAttribute("class", "slot-button");
+    }
+
+    if (element.matches(".slot-button")) {
+        var slot = element.getAttribute("data-slot");
+        
+        element.setAttribute("class", "selected slot-button");
+
+        slot = parseInt(slot);
+    }
+})
+
 healingWord.addEventListener("click", function(){
     var roll = 0;
     for (i = 0; i < spellLevel; i ++) {
@@ -438,7 +455,7 @@ flameStrike.addEventListener("click", function(){
     }
 })
 
-document.getElementById("up").addEventListener("click", function(){
+/*document.getElementById("up").addEventListener("click", function(){
     if (firstLevelSlot.textContent <= 3 && firstLevelSlot.textContent >= 0) {
         firstLevelSlot.textContent++;
     } else {
@@ -463,4 +480,4 @@ function initialize() {
     firstLevelSlot.textContent = currentFirstLevelSpellSlot;
 }
 
-initialize();
+initialize();*/
