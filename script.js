@@ -26,11 +26,15 @@ var rollType = document.querySelectorAll(".roll-type");
 var clearAll = document.querySelector("#clear-all");
 var outputFields = document.querySelectorAll(".result");
 
+var firstLevelSlot = document.querySelector("#first-level-slot");
+
 var proficiencyBonus = 5;
 var castingModifier = 5;
 var spellAttack = proficiencyBonus + castingModifier;
 var spellLevel;
 var whatRoll;
+
+firstLevelSlot.textContent = 4;
 
 
 attacks.addEventListener("click", function(event){
@@ -434,15 +438,18 @@ flameStrike.addEventListener("click", function(){
     }
 })
 
-clearAll.addEventListener("click", function(){
-    for (i = 0; i < outputFields.length; i++) {
-        outputFields[i].textContent = "";
-    }
-    for (var i = 0; i < allSpellLevels.length; i++) {
-        allSpellLevels[i].setAttribute("class", "plain spell-level");
-    }
-    for (var i = 0; i < rollType.length; i++) {
-        rollType[i].setAttribute("class", "plain roll-type");
+document.getElementById("up").addEventListener("click", function(){
+    if (firstLevelSlot.textContent <= 3 && firstLevelSlot.textContent >= 0) {
+        firstLevelSlot.textContent++;
+    } else {
+        return;
     }
 })
 
+document.getElementById("down").addEventListener("click", function(){
+    if (firstLevelSlot.textContent <= 4 && firstLevelSlot.textContent >= 1) {
+        firstLevelSlot.textContent--;
+    } else {
+        return;
+    }
+})
