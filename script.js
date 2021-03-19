@@ -14,6 +14,7 @@ var allSpellLevels = document.querySelectorAll(".spell-level");
 
 var spellSlots = document.querySelector(".spell-slots");
 var allSpellSlots = document.querySelectorAll(".slot-button");
+var allSpellSlotSpans = document.querySelectorAll(".btn-span");
 
 var healingWord = document.querySelector("#healing-word");
 var cureWounds = document.querySelector("#cure-wounds");
@@ -34,6 +35,7 @@ var proficiencyBonus = 5;
 var castingModifier = 5;
 var spellAttack = proficiencyBonus + castingModifier;
 var spellLevel;
+var spellSlot;
 var whatRoll;
 var slot;
 
@@ -309,7 +311,29 @@ spellSlots.addEventListener("click", function(event){
         
         element.setAttribute("class", "selected slot-button");
 
-        slot = parseInt(slot);
+        spellSlot = parseInt(slot);
+    }
+})
+
+document.getElementById("down").addEventListener("click", function(){
+    if (allSpellSlotSpans[spellSlot-1].textContent > 0) {
+        allSpellSlotSpans[spellSlot-1].textContent--;
+    } else {
+        return;
+    }
+    for (var i = 0; i < allSpellSlots.length; i++) {
+        allSpellSlots[i].setAttribute("class", "slot-button");
+    }
+})
+
+document.getElementById("up").addEventListener("click", function(){
+    if (allSpellSlotSpans[spellSlot-1].textContent < 4) {
+        allSpellSlotSpans[spellSlot-1].textContent++;
+    } else {
+        return;
+    }
+    for (var i = 0; i < allSpellSlots.length; i++) {
+        allSpellSlots[i].setAttribute("class", "slot-button");
     }
 })
 
