@@ -5,39 +5,10 @@
     font-family: sans-serif;
 }
 
-.natural-20 {
-    color: #28B463;
-}
-
-.natural-1 {
-    color: #E74C3C;
-}
-
-.plain {
-    color: black;
-}
-
-/*header {
-    text-align: center;
-    margin-top: 2%;
-}*/
-
 main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-.container {
-    border: 2px solid #2699ab;
-    text-align: center;
-    margin: 0 1% 1% 0;
-    width: 48%;
-}
-
-.different {
-    width: 100%;
-    padding: 2%;
 }
 
 h2 {
@@ -46,14 +17,6 @@ h2 {
 
 h3 {
     font-size: 20px;
-}
-
-.flex {
-    display: flex;
-}
-
-.column {
-    flex-direction: column;
 }
 
 .one {
@@ -69,17 +32,19 @@ h3 {
     justify-content: center;
 }
 
-.result {
-    margin: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 50px;
-    border: 1px solid #2699ab;
+.container {
+    border: 2px solid #2699ab;
+    text-align: center;
+    margin: 0 1% 1% 0;
+    width: 48%;
 }
 
-.skills {
+.different {
+    width: 100%;
+    padding: 2%;
+}
+
+.spell-levels {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -108,7 +73,57 @@ button:focus {
 }
 
 button:active {
-    transform: scale(.99);
+    transform: scale(1);
+}
+
+.spell-levels button {
+    width: 90%;
+    font-size: 150%;
+}
+
+.selected {
+    background-color: #FF8E7A;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.result {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    border: 1px solid #2699ab;
+}
+
+.natural-20 {
+    color: #28B463;
+}
+
+.natural-1 {
+    color: #E74C3C;
+}
+
+.plain {
+    color: black;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.proficient {
+    border: 5px solid #FF8E7A;
 }
 
 .skills button {
@@ -124,24 +139,4 @@ button:active {
 
 .saving-throws button, .rolls button {
     width: 50%;
-}
-
-.selected {
-    background-color: #FF8E7A;
-}
-
-.spell-levels {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.spell-levels button {
-    width: 90%;
-    font-size: 150%;
-}
-
-.proficient {
-    border: 5px solid #FF8E7A;
 }

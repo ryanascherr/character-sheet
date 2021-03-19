@@ -444,6 +444,8 @@ document.getElementById("up").addEventListener("click", function(){
     } else {
         return;
     }
+
+    localStorage.setItem("first-level-slots", firstLevelSlot.textContent);
 })
 
 document.getElementById("down").addEventListener("click", function(){
@@ -452,4 +454,13 @@ document.getElementById("down").addEventListener("click", function(){
     } else {
         return;
     }
+
+    localStorage.setItem("first-level-slots", firstLevelSlot.textContent);    
 })
+
+function initialize() {
+    currentFirstLevelSpellSlot = localStorage.getItem("first-level-slots");
+    firstLevelSlot.textContent = currentFirstLevelSpellSlot;
+}
+
+initialize();
