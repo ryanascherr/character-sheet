@@ -9,6 +9,23 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    position: relative;
+}
+
+.dark-mode {
+    background-color: #566573;
+    color: white;
+}
+
+#mode-switch {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#mode-button {
+    color: #2699ab;
+    background-color: white;
 }
 
 h2 {
@@ -120,7 +137,7 @@ button:active {
 }
 
 .plain {
-    color: black;
+    color: inherit;
 }
 
 .skills {

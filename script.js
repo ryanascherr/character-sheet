@@ -39,6 +39,18 @@ var spellSlot;
 var whatRoll;
 var slot;
 
+var modeButton = document.querySelector("#mode-button");
+var lightMode = true;
+
+modeButton.addEventListener("click", function(){
+    if (lightMode === true) {
+        document.getElementById("main").setAttribute("class", "dark-mode");
+        lightMode = false;
+    } else {
+        document.getElementById("main").setAttribute("class", "");
+        lightMode = true;
+    }
+})
 
 attacks.addEventListener("click", function(event){
 
